@@ -127,6 +127,7 @@ class ReS(Dataset):
         example = {'image': input_image, 'mask':mask, 'gt':output_image, 'amodal':new_amodal, 'size':data['size']}
 
         # inputs for SD
+        input_image, mask, output_image = np.array(input_image),np.array(mask), np.array(output_image)
         example = {
             'image': torch.from_numpy(input_image) / 127.5 - 1,
             'mask': torch.from_numpy(mask[:, :, None]),
